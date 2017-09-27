@@ -395,6 +395,8 @@ public class Minesweeper extends JFrame {
         break;
       case "6":  B.setForeground( Color.CYAN.darker() );
         break;
+      case "7": B.setForeground( Color.BLACK );
+        break;
       case "8":  B.setForeground( Color.GRAY );
         break;
     }
