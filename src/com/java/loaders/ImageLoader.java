@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class ImageLoader {
   ArrayList <ImageIcon> icons = new ArrayList<>();
-  
+
   public ImageLoader() {
     icons.add( image( "happySmiley" ) );
     icons.add( image( "clickedSmiley" ) );
