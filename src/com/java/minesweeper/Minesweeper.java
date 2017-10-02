@@ -78,17 +78,6 @@ public class Minesweeper extends JFrame {
     setResizable( false );
     setLocationRelativeTo( null );
     setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
-    // addComponentListener( new java.awt.event.ComponentAdapter() {
-    //   public void componentResized( java.awt.event.ComponentEvent evt ) {
-    //     if( getWidth() <= 261 ) {
-    //       setTitle( getWidth() + " - " + getHeight() );
-    //     } else {
-    //       setTitle( "Hacking frame size: " + getWidth() + " - " + getHeight() );
-    //     }
-    //     // components.setSize( getWidth() - 4, getHeight() - 26 );
-    //     // body.setSize( components.getWidth() - 16, components.getHeight() - 90 );
-    //   }
-    // } );
     
     contentPane = new JPanel();
     contentPane.setBorder( new EmptyBorder( 0, 0, 0, 0 ) );
