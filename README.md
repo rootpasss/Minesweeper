@@ -2,3 +2,4 @@
 Minesweeper Classic Version
 ![Snapshot1](https://github.com/jtrejosb/Minesweeper/blob/master/samples/win.png)
 ![Snapshot2](https://github.com/jtrejosb/Minesweeper/blob/master/samples/win&options.png)
+![Snapshot3](https://github.com/jtrejosb/Minesweeper/blob/master/samples/fastest.png)
