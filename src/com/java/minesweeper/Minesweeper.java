@@ -34,7 +34,6 @@ import com.java.utils.Level;
 *
 *     [ Minesweeper Classic, Beta version with bugs ]
 *     TODO: 1. Put Application Icon
-*     TODO: 2. Change Keyboard Panel Background Color
 *
 * Licenses: GNU GPL v3.0, Eclipse Public License 1.0, personal for non-commercial purposes.
 * Developer Contact: jtrejosb@live.com || jtrejosb@gmail.com || jtrejosb@icloud.com
@@ -45,7 +44,7 @@ public class Minesweeper extends JFrame {
   public static com.java.loaders.SoundLoader ticking = new com.java.loaders.SoundLoader( 3, true );
   public static com.java.timing.Timekeeper timing = new com.java.timing.Timekeeper();
   java.text.DecimalFormat DF = new java.text.DecimalFormat( "000" );
-  Border lineBorder = new LineBorder( Color.LIGHT_GRAY, 1 );
+  Border lineBorder = new LineBorder( Color.GRAY, 1 );
   ArrayList <JButton> buttons = new ArrayList<>();
   ArrayList <String> position = new ArrayList<>();
   ArrayList <String> values = new ArrayList<>();
@@ -146,6 +145,7 @@ public class Minesweeper extends JFrame {
     
     body = new JPanel();
     body.setBounds( 8, 62, components.getWidth() - 16, components.getHeight() - 90 );
+    body.setBackground( Color.LIGHT_GRAY );
     body.setBorder( BorderFactory.createLoweredBevelBorder() );
     components.add( body );
 
@@ -169,7 +169,7 @@ public class Minesweeper extends JFrame {
       B.setOpaque( true );
       B.setBackground( Color.LIGHT_GRAY );
       B.setName( i + "" );
-      B.setFont( new java.awt.Font( "Tahoma", java.awt.Font.BOLD, 17 ) );
+      B.setFont( new java.awt.Font( "Tahoma", java.awt.Font.BOLD, 18 ) );
       B.setBorder( BorderFactory.createRaisedBevelBorder() );
       B.addActionListener( event -> check( B, event ) );
       B.addMouseListener( new java.awt.event.MouseAdapter() {
