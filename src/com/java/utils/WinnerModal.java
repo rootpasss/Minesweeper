@@ -41,14 +41,9 @@ public class WinnerModal extends JDialog {
   String skill;
   int time;
 
-  // public static void main( String[] args ) {
-  //   new WinnerModal().setVisible( true );
-  // }
-
   public WinnerModal( String skill, int time ) {
     this.skill = skill;
     this.time = time;
-    setTitle( "Java " + System.getProperty( "java.version" ) + " on Sublime" );
     setSize( 207, 169 );
     setUndecorated( true );
     setModal( true );
