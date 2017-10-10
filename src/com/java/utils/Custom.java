@@ -38,10 +38,6 @@ public class Custom extends JDialog {
   JButton ok, cancel;
   Minesweeper M;
 
-  // public static void main( String[] args ) {
-  //   new Custom( new Minesweeper() ).setVisible( true );
-  // }
-
   public Custom( Minesweeper M ) {
     this.M = M;
     setTitle( "Custom Field" );
