@@ -175,10 +175,8 @@ public class Menu extends JMenuBar {
     } );
 
     best.addActionListener( event -> new com.java.stats.FastestSweepers().setVisible( true ) );
-
-    exit.addActionListener( event -> System.exit( 0 ) );
-
     about.addActionListener( event -> new About().setVisible( true ) );
+    exit.addActionListener( event -> System.exit( 0 ) );
   }
 
   public static String getSelectedSkill() {
