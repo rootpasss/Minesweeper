@@ -18,8 +18,9 @@ import java.util.ArrayList;
 import com.java.loaders.FontLoader;
 import com.java.loaders.ImageLoader;
 import com.java.stats.Base;
-import com.java.utils.Menu;
+import com.java.utils.KeyAssistant;
 import com.java.utils.Level;
+import com.java.utils.Menu;
 
 /**
 * Engineered and developed by Jhonny Trejos Barrios.
@@ -216,6 +217,8 @@ public class Minesweeper extends JFrame {
       body.add( B );
       buttons.add( B );
     }
+
+    new KeyAssistant( buttons, Level.getHeight(), Level.getWidth() );
   }
 
   public void check( JButton button, java.awt.event.ActionEvent e ) {
@@ -387,7 +390,7 @@ public class Minesweeper extends JFrame {
         break;
       case "6":  B.setForeground( Color.CYAN.darker() );
         break;
-      case "7": B.setForeground( Color.BLACK );
+      case "7":  B.setForeground( Color.BLACK );
         break;
       case "8":  B.setForeground( Color.GRAY );
         break;
