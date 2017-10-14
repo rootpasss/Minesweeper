@@ -39,8 +39,6 @@ public class Level {
   }
 
   public static int getMines() {
-    // return size == 9 ? 10 : size == 16 ? 40 : 99;
-    // return width <= 9 ? 10 : width <= 16 ? 40 : 99;
     return mines;
   }
 }
