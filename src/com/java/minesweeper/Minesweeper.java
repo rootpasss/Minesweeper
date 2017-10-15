@@ -10,6 +10,8 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.awt.GridLayout;
 
@@ -175,6 +177,11 @@ public class Minesweeper extends JFrame {
       B.setFont( new java.awt.Font( "Tahoma", java.awt.Font.BOLD, 18 ) );
       B.setBorder( BorderFactory.createRaisedBevelBorder() );
       B.addActionListener( event -> check( B, event ) );
+      B.addKeyListener( new KeyAdapter() {
+        public void keyReleased( KeyEvent evt ) {
+          releasedEvent( B );
+        }
+      } );
       B.addMouseListener( new java.awt.event.MouseAdapter() {
         public void mousePressed( java.awt.event.MouseEvent evt ) {
           if( B.getActionListeners().length > 0 ) {
@@ -183,7 +190,8 @@ public class Minesweeper extends JFrame {
         }
 
         public void mouseReleased( java.awt.event.MouseEvent evt ) {
-          if( B.getActionListeners().length > 0 ) {
+          releasedEvent( B );
+          /*if( B.getActionListeners().length > 0 ) {
             start.setIcon( B.getIcon() == imgLoader.loadIcon( 6 ) ? imgLoader.loadIcon( 3 ) : imgLoader.loadIcon( 0 ) );
 
             if( cellCounter == Level.getWidth() * Level.getHeight() - Level.getMines() ) {
@@ -211,7 +219,7 @@ public class Minesweeper extends JFrame {
                 e.printStackTrace();
               }
             }
-          }
+          }*/
         }
       } );
       body.add( B );
@@ -219,6 +227,38 @@ public class Minesweeper extends JFrame {
     }
 
     new KeyAssistant( buttons, Level.getHeight(), Level.getWidth() );
+  }
+
+  public void releasedEvent( JButton B ) {
+    if( B.getActionListeners().length > 0 ) {
+      start.setIcon( B.getIcon() == imgLoader.loadIcon( 6 ) ? imgLoader.loadIcon( 3 ) : imgLoader.loadIcon( 0 ) );
+
+      if( cellCounter == Level.getWidth() * Level.getHeight() - Level.getMines() ) {
+        start.setIcon( imgLoader.loadIcon( 2 ) );
+        disableBoard();
+        revealFlags();
+        minesLeft.setText( DF.format( countFlags() ) );
+
+        // Compare level time with base file level time here...
+        if( ! com.java.utils.Menu.getSelectedSkill().equals( "Custom" ) ) {
+          int finalTime = Integer.parseInt( time.getText() );
+          new Base().compareStats( finalTime, com.java.utils.Menu.getSelectedSkill() );
+        }
+      }
+
+      if( launch ) {
+        try {
+          if( com.java.utils.Menu.sound.isSelected() ) {
+            ticking.mute( false );
+          }
+
+          timing.go( true );
+          launch = false;
+        } catch( Exception e ) {
+          e.printStackTrace();
+        }
+      }
+    }
   }
 
   public void check( JButton button, java.awt.event.ActionEvent e ) {
