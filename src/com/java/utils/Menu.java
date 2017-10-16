@@ -90,7 +90,7 @@ public class Menu extends JMenuBar {
       Level.setSize( 30, 16 );
       Level.setMines( 99 );
     } else {
-      M.setSize( 685, 472 );//This is the expert size! [change]
+      M.setSize( 685, 472 );
       Level.setSize( Custom.getCellsWidth(), Custom.getCellsHeight() );
       Level.setMines( Custom.getMines() );
     }
