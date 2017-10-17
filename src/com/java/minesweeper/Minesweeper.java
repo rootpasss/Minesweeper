@@ -37,8 +37,7 @@ import com.java.utils.Menu;
 *
 *     [ Minesweeper Classic, Beta version with bugs ]
 *     TODO: 1. Put Application Icon
-*     TODO: 2. Add Keyboard Gaming Mode
-*     TODO: 3. Add How-To Play
+*     TODO: 2. Add How-To Play
 *
 * Licenses: GNU GPL v3.0, Eclipse Public License 1.0, personal for non-commercial purposes.
 * Developer Contact: jtrejosb@live.com || jtrejosb@gmail.com || jtrejosb@icloud.com
