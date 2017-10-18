@@ -18,7 +18,7 @@ import java.io.File;
 *
 * Source Code Target Or Details:
 *
-*     [ Sound Resources Player ]
+*     [ Sound Resources Player, Media Provided By freesound.org ]
 *
 * Licenses: GNU GPL v3.0, Eclipse Public License 1.0, Personal for non-commercial purposes.
 * Developer Contact: jtrejosb@live.com || jtrejosb@gmail.com || jtrejosb@icloud.com
