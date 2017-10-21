@@ -23,6 +23,7 @@ import com.java.utils.WinnerModal;
 * Source Code Target Or Details:
 *
 *     [ Game Persistence Manager ]
+*     //TODO: Bug when no base file exists, exception at first read/write file
 *
 * Licenses: GNU GPL v3.0, Eclipse Public License 1.0, Personal for non-commercial purposes.
 * Developer Contact: jtrejosb@live.com || jtrejosb@gmail.com || jtrejosb@icloud.com
