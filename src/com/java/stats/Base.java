@@ -23,7 +23,6 @@ import com.java.utils.WinnerModal;
 * Source Code Target Or Details:
 *
 *     [ Game Persistence Manager ]
-*     //TODO: Bug when no base file exists, exception at first read/write file
 *
 * Licenses: GNU GPL v3.0, Eclipse Public License 1.0, Personal for non-commercial purposes.
 * Developer Contact: jtrejosb@live.com || jtrejosb@gmail.com || jtrejosb@icloud.com
@@ -59,6 +58,11 @@ public class Base {
   @SuppressWarnings( "unchecked" )
   public void readBaseFile() {
     try {
+      if( ! F.exists() ) {
+        new File( F.getParent() ).mkdirs();
+        reset();
+      }
+
       FIS = new FileInputStream( F );
       OIS = new ObjectInputStream( FIS );
 
@@ -72,12 +76,16 @@ public class Base {
   }
 
   public void resetBaseFile() {
-    try {
-      comprobation();// Comprobates if file base exists
+    readBaseFile();
+    reset();
+  }
 
+  private void reset() {
+    try {
       FOS = new FileOutputStream( F );
       OOS = new ObjectOutputStream( FOS );
 
+      dataInfo.removeAll( dataInfo );
       dataInfo.add( new Skill( "Beginner:", 999, "Anonymous" ) );
       dataInfo.add( new Skill( "Intermediate:", 999, "Anonymous" ) );
       dataInfo.add( new Skill( "Expert:", 999, "Anonymous" ) );
@@ -107,16 +115,6 @@ public class Base {
 
     if( time < dataInfo.get( pos ).getTotalTime() ) {
       new WinnerModal( level, time ).setVisible( true );
-    }
-  }
-
-  public void comprobation() {
-    try {
-      if( ! F.exists() ) {
-        new File( F.getParent() ).mkdirs();
-      }
-    } catch( Exception e ) {
-      e.printStackTrace();
     }
   }
 }
