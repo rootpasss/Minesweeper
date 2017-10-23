@@ -188,36 +188,7 @@ public class Minesweeper extends JFrame {
 
         public void mouseReleased( java.awt.event.MouseEvent evt ) {
           releasedEvent( B );
-          /*if( B.getActionListeners().length > 0 ) {
-            start.setIcon( B.getIcon() == imgLoader.loadIcon( 6 ) ? imgLoader.loadIcon( 3 ) : imgLoader.loadIcon( 0 ) );
-
-            if( cellCounter == Level.getWidth() * Level.getHeight() - Level.getMines() ) {
-              start.setIcon( imgLoader.loadIcon( 2 ) );
-              disableBoard();
-              revealFlags();
-              minesLeft.setText( DF.format( countFlags() ) );
-
-              // Compare level time with base file level time here...
-              if( ! com.java.utils.Menu.getSelectedSkill().equals( "Custom" ) ) {
-                int finalTime = Integer.parseInt( time.getText() );
-                new Base().compareStats( finalTime, com.java.utils.Menu.getSelectedSkill() );
-              }
-            }
-
-            if( launch ) {
-              try {
-                if( com.java.utils.Menu.sound.isSelected() ) {
-                  ticking.mute( false );
-                }
-
-                timing.go( true );
-                launch = false;
-              } catch( Exception e ) {
-                e.printStackTrace();
-              }
-            }
-          }*/
-        }
+       }
       } );
       body.add( B );
       buttons.add( B );
