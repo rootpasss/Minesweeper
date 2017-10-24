@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Font;
+import java.awt.Robot;
 
 /**
 * Engineered and developed by Jhonny Trejos Barrios.
@@ -68,6 +69,15 @@ public class FastestSweepers extends JDialog {
     ok.setOpaque( true );
     ok.addActionListener( event -> dispose() );
     getContentPane().add( ok );
+
+    try {
+      //Put cursor over Ok button
+      int X = (int) java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+      int Y = (int) java.awt.Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+      new Robot().mouseMove( X / 2 + (int)ok.getLocation().getX() / 2 - 7, Y / 2 + (int)ok.getLocation().getY() / 2 + 17 );
+    } catch( Exception e ) {
+      e.printStackTrace();
+    }
   }
 
   public void setData() {
