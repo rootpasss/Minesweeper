@@ -36,6 +36,7 @@ import com.java.utils.Menu;
 * Source Code Target Or Details:
 *
 *     [ Minesweeper Classic, Beta version with bugs ]
+*     //TODO: Put App Icon (MacOS)
 *
 * Licenses: GNU GPL v3.0, Eclipse Public License 1.0, personal for non-commercial purposes.
 * Developer Contact: jtrejosb@live.com || jtrejosb@gmail.com || jtrejosb@icloud.com
