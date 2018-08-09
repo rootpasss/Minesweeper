@@ -50,6 +50,9 @@ public class Base {
 
       OOS.close();
       FOS.close();
+      //Make base file backup
+      /*java.nio.file.Files.copy(F.toPath(), new File(F.getParent() + "/fastest.copy.sw").toPath(),
+                               java.nio.file.StandardCopyOption.REPLACE_EXISTING);*/
     } catch( Exception e ) {
       e.printStackTrace();
     }
