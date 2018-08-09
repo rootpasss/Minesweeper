@@ -60,7 +60,7 @@ public class Base {
     try {
       if( ! F.exists() ) {
         new File( F.getParent() ).mkdirs();
-        reset();
+        resetBaseFile();
       }
 
       FIS = new FileInputStream( F );
@@ -76,16 +76,10 @@ public class Base {
   }
 
   public void resetBaseFile() {
-    readBaseFile();
-    reset();
-  }
-
-  private void reset() {
     try {
       FOS = new FileOutputStream( F );
       OOS = new ObjectOutputStream( FOS );
 
-      dataInfo.removeAll( dataInfo );
       dataInfo.add( new Skill( "Beginner:", 999, "Anonymous" ) );
       dataInfo.add( new Skill( "Intermediate:", 999, "Anonymous" ) );
       dataInfo.add( new Skill( "Expert:", 999, "Anonymous" ) );
