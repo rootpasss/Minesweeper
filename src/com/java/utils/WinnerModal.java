@@ -69,6 +69,9 @@ public class WinnerModal extends JDialog {
     playerName.addKeyListener( new KeyAdapter() {
       public void keyReleased( KeyEvent evt ) {
         save.setEnabled( playerName.getText().length() > 0 );
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+          storePlayer();
+        }
       }
     } );
     getContentPane().add( playerName );
