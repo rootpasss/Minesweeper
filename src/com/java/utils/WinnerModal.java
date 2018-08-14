@@ -7,8 +7,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyAdapter;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -66,14 +64,7 @@ public class WinnerModal extends JDialog {
     playerName.setSize( 160, 25 );
     playerName.setLocation( getWidth() / 2 - playerName.getWidth() / 2, 80 );
     playerName.setFont( serifFont );
-    playerName.addKeyListener( new KeyAdapter() {
-      public void keyReleased( KeyEvent evt ) {
-        save.setEnabled( playerName.getText().length() > 0 );
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-          storePlayer();
-        }
-      }
-    } );
+    playerName.addActionListener(e -> storePlayer());
     getContentPane().add( playerName );
 
     save = new JButton( "OK" );
