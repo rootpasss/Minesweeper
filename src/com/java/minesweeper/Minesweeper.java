@@ -286,7 +286,6 @@ public class Minesweeper extends JFrame {
 
     ticking.mute( true );
     timing.go( false );
-
     repaint();
   }
 
