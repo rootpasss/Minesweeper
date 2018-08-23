@@ -41,7 +41,7 @@ public class Timekeeper extends Thread {
           }
           
           secs = (int) ((System.currentTimeMillis() - ST) / 1000F);
-          Minesweeper.time.setText( secs < 999 ? DF.format( secs ) : Minesweeper.time.getText() );
+          Minesweeper.time.setText( secs < 1000 ? DF.format( secs ) : Minesweeper.time.getText() );
         } else {
           ST = System.currentTimeMillis();
         }
