@@ -64,7 +64,14 @@ public class WinnerModal extends JDialog {
     playerName.setSize( 160, 25 );
     playerName.setLocation( getWidth() / 2 - playerName.getWidth() / 2, 80 );
     playerName.setFont( serifFont );
-    playerName.addActionListener(e -> storePlayer());
+    playerName.addKeyListener(new java.awt.event.KeyAdapter() {
+      public void keyReleased(java.awt.event.KeyEvent evt) {
+        save.setEnabled(!playerName.getText().isEmpty());
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+          storePlayer();
+        }
+      }
+    });
     getContentPane().add( playerName );
 
     save = new JButton( "OK" );
