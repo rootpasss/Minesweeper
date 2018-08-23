@@ -23,16 +23,27 @@ import com.java.minesweeper.Minesweeper;
 */
 
 public class Timekeeper extends Thread {
-  DecimalFormat DF = new DecimalFormat( "000" );
+  private DecimalFormat DF = new DecimalFormat( "000" );
   public static boolean step = false;
-  static int secs = 0;
+  private boolean toggle = true;
+  private static int secs = 0;
   
   public void run() {
+    long ST = System.currentTimeMillis();
+
     try {
       while( true ) {
         if( step ) {
-          sleep( 1000 );
-          Minesweeper.time.setText( secs ++ < 999 ? DF.format( secs ) : Minesweeper.time.getText() );
+          if(toggle) {
+            ST = System.currentTimeMillis();
+            Thread.sleep(1000);
+            toggle = false;
+          }
+          
+          secs = (int) ((System.currentTimeMillis() - ST) / 1000F);
+          Minesweeper.time.setText( secs < 999 ? DF.format( secs ) : Minesweeper.time.getText() );
+        } else {
+          ST = System.currentTimeMillis();
         }
 
         sleep( 2 );
@@ -52,7 +63,6 @@ public class Timekeeper extends Thread {
 
   public static void reset( boolean onCourse ) {
     Minesweeper.time.setText( "000" );
-    secs = onCourse ? -1 : 0;
     step = false;
   }
 }
