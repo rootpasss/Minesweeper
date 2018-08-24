@@ -44,7 +44,6 @@ import com.java.utils.Menu;
 */
 
 public class Minesweeper extends JFrame {
-  public static com.java.loaders.SoundLoader ticking = new com.java.loaders.SoundLoader( 3, true );
   public static com.java.timing.Timekeeper timing = new com.java.timing.Timekeeper();
   java.text.DecimalFormat DF = new java.text.DecimalFormat( "000" );
   Border lineBorder = new LineBorder( Color.GRAY, 1 );
@@ -160,7 +159,6 @@ public class Minesweeper extends JFrame {
 
     setButtons();// Place buttons on the board
     setup();     // Initialize 2D array randomly
-    ticking.start();
     timing.start();
   }
 
@@ -217,10 +215,6 @@ public class Minesweeper extends JFrame {
 
       if( launch ) {
         try {
-          if( com.java.utils.Menu.sound.isSelected() ) {
-            ticking.mute( false );
-          }
-
           timing.go( true );
           launch = false;
         } catch( Exception e ) {
@@ -284,7 +278,6 @@ public class Minesweeper extends JFrame {
       }
     }
 
-    ticking.mute( true );
     timing.go( false );
     repaint();
   }
@@ -305,7 +298,6 @@ public class Minesweeper extends JFrame {
       new com.java.loaders.SoundLoader( 1 ).start();// Play explosion if 'Sound' option is enabled
     }        
 
-    ticking.mute( true );
     timing.go( false );
     start.setIcon( imgLoader.loadIcon( 3 ) );
     repaint();
