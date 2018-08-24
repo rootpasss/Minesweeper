@@ -168,9 +168,7 @@ public class Menu extends JMenuBar {
 
     sound.addActionListener( new ActionListener() {
       public void actionPerformed( ActionEvent evt ) {
-        if( com.java.minesweeper.Minesweeper.timing.step == true ) {
-          com.java.loaders.SoundLoader.mute( ! sound.isSelected() );
-        }
+        com.java.timing.Timekeeper.comp = com.java.timing.Timekeeper.secs + 1;
       }
     } );
 
