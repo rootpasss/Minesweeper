@@ -26,7 +26,8 @@ public class Timekeeper extends Thread {
   private DecimalFormat DF = new DecimalFormat( "000" );
   public static boolean step = false;
   private boolean toggle = true;
-  private static int secs = 0;
+  public static int secs = 0;
+  public static int comp = 1;
   
   public void run() {
     long ST = System.currentTimeMillis();
@@ -39,14 +40,19 @@ public class Timekeeper extends Thread {
             Thread.sleep(1000);
             toggle = false;
           }
-          
+
           secs = (int) ((System.currentTimeMillis() - ST) / 1000F);
           Minesweeper.time.setText( secs < 1000 ? DF.format( secs ) : Minesweeper.time.getText() );
+          if(com.java.utils.Menu.sound.isSelected() && (comp == secs)) {
+            new com.java.loaders.SoundLoader( 3 ).start();
+            comp ++;
+          }
         } else {
           ST = System.currentTimeMillis();
+          comp = 1;
         }
 
-        sleep( 2 );
+        Thread.sleep( 5 );
       }
     } catch( Exception e ) {
       e.printStackTrace();
