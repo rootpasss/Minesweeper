@@ -26,21 +26,13 @@ import java.io.File;
 */
 
 public class SoundLoader extends Thread {
-  public static boolean muted;
-  boolean toggle = true;// TO WAIT 1 SECOND BEFORE FIRST CLICK ON THE BOARD
-  int ID;
+  private int ID;
 
-  public SoundLoader( int ID, boolean muted ) {
-    this.ID = ID;
-    this.muted = muted;
-  }
-
-  //Test
-  public SoundLoader( int ID ) {
+  public SoundLoader(int ID) {
     this.ID = ID;
   }
 
-  public void play( String media ) {
+  private void play(String media) {
     try {
       Clip tune = AudioSystem.getClip();
       tune.open( AudioSystem.getAudioInputStream( getClass().getResource( media ) ) );
@@ -54,48 +46,14 @@ public class SoundLoader extends Thread {
     }
   }
 
-  public void playLooped( String media ) {
-    try {
-      Clip tune = AudioSystem.getClip();
-      tune.open( AudioSystem.getAudioInputStream( getClass().getResource( media ) ) );
-
-      if( ! muted && ! com.java.minesweeper.Minesweeper.launch ) {
-        tune.start();
-      }
-
-      while( true ) {
-        if( ! muted && ! com.java.minesweeper.Minesweeper.launch ) {
-          do {
-            if( toggle ) {
-              sleep( 1000 );
-              toggle = false;
-            } else {
-              tune.start();
-              sleep( 1000 );
-              tune.loop( 1 );
-            }
-          } while( tune.isRunning() );
-        }
-
-        sleep( 2 );
-      }
-    } catch( Exception e ) {
-      e.printStackTrace();
-    }
-  }
-
   public void run() {
     switch( ID ) {
       case 1:  play( "/sounds/bomb.wav" );
         break;
-      case 2:   play( "/sounds/sweep.wav" );
+      case 2:  play( "/sounds/sweep.wav" );
         break;
-      case 3:  playLooped( "/sounds/clock.wav" );
+      case 3:  play( "/sounds/clock.wav" );
         break;
     }
-  }
-
-  public static void mute( boolean newMuted ) {
-    muted = newMuted;
   }
 }
