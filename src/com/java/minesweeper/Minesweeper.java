@@ -68,7 +68,7 @@ public class Minesweeper extends JFrame {
   String[] range8;
   String[] range9;
   String[][] map;
-  JButton start;
+  JLabel start;
 
   public static void main( String[] args ) {
      new Minesweeper().setVisible( true );
@@ -112,22 +112,16 @@ public class Minesweeper extends JFrame {
     header.add( minesLeft );
     header.add( minesLeftBack );
 
-    start = new JButton();
+    start = new JLabel();
     start.setSize( 37, 37 );
     start.setLocation( header.getWidth() / 2 - start.getWidth() / 2, 5 );
-    start.setBorder( BorderFactory.createRaisedBevelBorder() );
-    start.setFocusPainted( false );
     start.setIcon( imgLoader.loadIcon( 0 ) );
-    start.addActionListener( event -> restart() );
-    start.addMouseListener( new java.awt.event.MouseAdapter() {
-      public void mousePressed( java.awt.event.MouseEvent evt ) {
-        start.setBorder( BorderFactory.createLoweredBevelBorder() );
+    start.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+    start.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        restart();
       }
-
-      public void mouseReleased( java.awt.event.MouseEvent evt ) {
-        start.setBorder( BorderFactory.createRaisedBevelBorder() );
-      }
-    } );
+    });
     header.add( start );
 
     time = new JLabel( "000" );
@@ -175,7 +169,8 @@ public class Minesweeper extends JFrame {
       B.addActionListener( event -> check( B, event ) );
       B.addKeyListener( new KeyAdapter() {
         public void keyReleased( KeyEvent evt ) {
-          releasedEvent( B );
+          if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+            releasedEvent(B);
         }
       } );
       B.addMouseListener( new java.awt.event.MouseAdapter() {
