@@ -41,7 +41,7 @@ public class ImageLoader {
   }
 
   private ImageIcon image( String name ) {
-    int size = name.contains( "Smiley" ) ? 31 : 25;
+    int size = name.contains( "Smiley" ) ? 30 : 25;
     Image image = new ImageIcon( getClass().getResource( "/icons/" + name + ".png" ) ).getImage();
     image = image.getScaledInstance( size, size, Image.SCALE_SMOOTH );
     return new ImageIcon( image );
